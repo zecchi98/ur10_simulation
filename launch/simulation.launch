@@ -1,0 +1,11 @@
+<launch>
+  <!-- Launch gazebo simulation -->
+  <include file="$(find ur10_simulation)/launch/ur10_sim.launch"/>
+
+  <!-- Launch MoveIt!-->
+  <include file="$(find ur10_simulation)/launch/ur10_sim_moveit_planning_execution.launch"/>
+
+  <!-- Launch RViz-->
+  <include file="$(find ur10_simulation)/launch/moveit_rviz.launch"/>
+
+</launch>
