@@ -1,6 +1,11 @@
 <launch>
+
+  <arg name="gui" default="true" doc="Starts gazebo gui" />
+
   <!-- Launch gazebo simulation -->
-  <include file="$(find ur10_simulation)/launch/ur10_sim.launch"/>
+  <include file="$(find ur10_simulation)/launch/ur10_sim.launch">
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
 
   <!-- Launch MoveIt!-->
   <include file="$(find ur10_simulation)/launch/ur10_sim_moveit_planning_execution.launch"/>
