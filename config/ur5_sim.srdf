@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="ur10">
+<robot name="ur5">
     <group name="manipulator">
         <chain base_link="base_link" tip_link="ee_link" />
     </group>
@@ -27,7 +27,7 @@
 
     <end_effector name="moveit_ee" parent_link="ee_link" group="endeffector" />
 
-    <!--virtual_joint name="fixed_base" type="fixed" parent_frame="world" child_link="base_link" /-->
+    <virtual_joint name="fixed_base" type="fixed" parent_frame="world" child_link="base_link" />
 
     <disable_collisions link1="base_link" link2="table" reason="Adjacent" />
     <disable_collisions link1="base_link" link2="shoulder_link" reason="Adjacent" />
