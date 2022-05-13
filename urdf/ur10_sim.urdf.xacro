@@ -56,14 +56,14 @@
     <link name="camera_link"/>
     <!-- Attach camera to tool0 -->
     <joint name="camera" type="fixed">
-      <origin xyz="0 -0.000447 0.08739618542" rpy="0 ${-pi/2} ${pi/2}" />
+      <origin xyz="0 0 0" rpy="0 ${-pi/2} ${pi/2}" />
       <parent link="tool0" />
       <child link="camera_link" />
     </joint>
     <link name="cameradepth_link"/>
     <!-- Attach camera to tool0 -->
     <joint name="camera_depth" type="fixed">
-      <origin xyz="0 0 0" rpy="${pi/2} ${0} ${pi/2}" />
+      <origin xyz="0 0 0" rpy="${-pi/2} ${0} ${-pi/2}" />
       <parent link="camera_link" />
       <child link="cameradepth_link" />
     </joint>
