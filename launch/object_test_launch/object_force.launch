@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- angoli ottimali per leggere cubo: -62 -82 116 -29 -62 -2 -->
+<launch>
+  <arg name="x" default="1.14" />
+  <arg name="y" default="0.26" />
+  <arg name="z" default="0.35" />
+  <arg name="roll" default="0.0" />
+  <arg name="pitch" default="0.0" />
+  <arg name="yaw" default="-0.4" />
+  <arg name="sdf_robot_file" default="/home/federico/.gazebo/models/marker33_box/model.sdf"/>
+  <arg name="robot_name" default="person_standing"/>
+  <arg name="node_start_delay" default="20.0" />  
+  <node name="go_to_test_control_force" pkg="ur10_control" type="go_to_test_control_force.py"/>
+  <node name="$(arg robot_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(arg sdf_robot_file) -sdf -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg robot_name)" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " />
+
+
+  </launch>

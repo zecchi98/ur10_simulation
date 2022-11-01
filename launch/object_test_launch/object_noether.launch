@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- angoli ottimali per leggere cubo: -62 -82 116 -29 -62 -2 -->
+<launch>
+  <arg name="x" default="1.14" />
+  <arg name="y" default="0.26" />
+  <arg name="z" default="0.35" />
+  <arg name="roll" default="0.0" />
+  <arg name="pitch" default="0.0" />
+  <arg name="yaw" default="-0.4" />
+  <arg name="sdf_robot_file" default="/home/federico/.gazebo/models/marker33_box/model.sdf"/>
+  <arg name="robot_name" default="person_standing"/>
+
+  <node name="$(arg robot_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(arg sdf_robot_file) -sdf -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg robot_name)"/>
+
+
+  <node name="go_to_std_position_to_read_obj" pkg="ur10_control" type="go_to_std_position_to_read_obj.py"/>
+</launch>
